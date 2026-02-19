@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023, 2025, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2023, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -457,10 +457,10 @@ public class TestHSS {
 
         // Test Case #3
         // Additional Parameter sets for LMS Hash-Based Signatures (fluhrer)
-        // This test should fail because SHA256_M24 is supported.
+        // LMS_SHA256_M24_H5, LMOTS_SHA256_N24_W8
         new TestCase(
-            new InvalidKeySpecException(),
-            false, // expected result
+            null, // exception
+            true, // expected result
             decode("""
                 00000001
                 0000000a
@@ -503,10 +503,10 @@ public class TestHSS {
 
         // Test Case #4
         // Additional Parameter sets for LMS Hash-Based Signatures (fluhrer)
-        // This test should fail because SHAKE is not supported.
+        // LMS_SHAKE_M24_H5, LMOTS_SHAKE_N24_W8
         new TestCase(
-            new InvalidKeySpecException(),
-            false, // expected result
+            null, // exception
+            true, // expected result
             decode("""
                 00000001
                 00000014
@@ -550,10 +550,10 @@ public class TestHSS {
 
         // Test Case #5
         // Additional Parameter sets for LMS Hash-Based Signatures (fluhrer)
-        // This test should fail because SHAKE is not supported.
+        // LMS_SHAKE_M32_H5, LMOTS_SHAKE_N32_W8
         new TestCase(
-            new InvalidKeySpecException(),
-            false, // expected result
+            null, // exception
+            true, // expected result
             decode("""
                 00000001
                 0000000f
