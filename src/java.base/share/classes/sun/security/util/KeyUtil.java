@@ -451,8 +451,10 @@ public final class KeyUtil {
             int num = ((rawKey[4] & 0xff) << 24) + ((rawKey[5] & 0xff) << 16)
                     + ((rawKey[6] & 0xff) << 8) + (rawKey[7] & 0xff);
             return switch (num) {
-                // RFC 8554 only supports SHA_256 hash algorithm
+                // RFC 8554 only supports SHA_256 hash algorithms
                 case 5, 6, 7, 8, 9 -> AlgorithmId.SHA256_oid;
+                // RFC 9858 supports SHAKE_256 hash algorithms
+                case 15, 16, 17, 18, 19 -> AlgorithmId.SHAKE256_512_oid;
                 default -> throw new NoSuchAlgorithmException("Unknown LMS type: " + num);
             };
         } catch (IOException e) {
