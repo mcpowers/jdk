@@ -444,7 +444,6 @@ public final class KeyUtil {
             // is the LMS public key for the top-level tree.
             // Section 5.3: LMS public key is u32str(type) || u32str(otstype) || I || T[1]
             // Section 8: type is the numeric identifier for an LMS specification.
-            // This RFC defines 5 SHA-256 based types, value from 5 to 9.
             if (rawKey.length < 8) {
                 throw new NoSuchAlgorithmException("Cannot decode public key");
             }
