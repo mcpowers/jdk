@@ -224,31 +224,30 @@ public final class HSS extends SignatureSpi {
         static final int LMS_SHAKE_M24_H25  = 0x18;
 
         static String lmsType(int type) {
-            String typeStr;
-            switch (type) {
-                case LMS_RESERVED: typeStr = "LMS_RESERVED"; break;
-                case LMS_SHA256_M32_H5:  typeStr = "LMS_SHA256_M32_H5"; break;
-                case LMS_SHA256_M32_H10: typeStr = "LMS_SHA256_M32_H10"; break;
-                case LMS_SHA256_M32_H15: typeStr = "LMS_SHA256_M32_H15"; break;
-                case LMS_SHA256_M32_H20: typeStr = "LMS_SHA256_M32_H20"; break;
-                case LMS_SHA256_M32_H25: typeStr = "LMS_SHA256_M32_H25"; break;
-                case LMS_SHA256_M24_H5:  typeStr = "LMS_SHA256_M24_H5"; break;
-                case LMS_SHA256_M24_H10: typeStr = "LMS_SHA256_M24_H10"; break;
-                case LMS_SHA256_M24_H15: typeStr = "LMS_SHA256_M24_H15"; break;
-                case LMS_SHA256_M24_H20: typeStr = "LMS_SHA256_M24_H20"; break;
-                case LMS_SHA256_M24_H25: typeStr = "LMS_SHA256_M24_H25"; break;
-                case LMS_SHAKE_M32_H5:   typeStr = "LMS_SHAKE_M32_H5"; break;
-                case LMS_SHAKE_M32_H10:  typeStr = "LMS_SHAKE_M32_H10"; break;
-                case LMS_SHAKE_M32_H15:  typeStr = "LMS_SHAKE_M32_H15"; break;
-                case LMS_SHAKE_M32_H20:  typeStr = "LMS_SHAKE_M32_H20"; break;
-                case LMS_SHAKE_M32_H25:  typeStr = "LMS_SHAKE_M32_H25"; break;
-                case LMS_SHAKE_M24_H5:   typeStr = "LMS_SHAKE_M24_H5"; break;
-                case LMS_SHAKE_M24_H10:  typeStr = "LMS_SHAKE_M24_H10"; break;
-                case LMS_SHAKE_M24_H15:  typeStr = "LMS_SHAKE_M24_H15"; break;
-                case LMS_SHAKE_M24_H20:  typeStr = "LMS_SHAKE_M24_H20"; break;
-                case LMS_SHAKE_M24_H25:  typeStr = "LMS_SHAKE_M24_H25"; break;
-                default: typeStr = "unrecognized";
-            }
+            String typeStr = switch (type) {
+                case LMS_RESERVED -> "LMS_RESERVED";
+                case LMS_SHA256_M32_H5  -> "LMS_SHA256_M32_H5";
+                case LMS_SHA256_M32_H10 -> "LMS_SHA256_M32_H10";
+                case LMS_SHA256_M32_H15 -> "LMS_SHA256_M32_H15";
+                case LMS_SHA256_M32_H20 -> "LMS_SHA256_M32_H20";
+                case LMS_SHA256_M32_H25 -> "LMS_SHA256_M32_H25";
+                case LMS_SHA256_M24_H5  -> "LMS_SHA256_M24_H5";
+                case LMS_SHA256_M24_H10 -> "LMS_SHA256_M24_H10";
+                case LMS_SHA256_M24_H15 -> "LMS_SHA256_M24_H15";
+                case LMS_SHA256_M24_H20 -> "LMS_SHA256_M24_H20";
+                case LMS_SHA256_M24_H25 -> "LMS_SHA256_M24_H25";
+                case LMS_SHAKE_M32_H5   -> "LMS_SHAKE_M32_H5";
+                case LMS_SHAKE_M32_H10  -> "LMS_SHAKE_M32_H10";
+                case LMS_SHAKE_M32_H15  -> "LMS_SHAKE_M32_H15";
+                case LMS_SHAKE_M32_H20  -> "LMS_SHAKE_M32_H20";
+                case LMS_SHAKE_M32_H25  -> "LMS_SHAKE_M32_H25";
+                case LMS_SHAKE_M24_H5   -> "LMS_SHAKE_M24_H5";
+                case LMS_SHAKE_M24_H10  -> "LMS_SHAKE_M24_H10";
+                case LMS_SHAKE_M24_H15  -> "LMS_SHAKE_M24_H15";
+                case LMS_SHAKE_M24_H20  -> "LMS_SHAKE_M24_H20";
+                case LMS_SHAKE_M24_H25  -> "LMS_SHAKE_M24_H25";
+                default -> "unrecognized";
+            };
             return typeStr;
         }
 
@@ -271,27 +270,26 @@ public final class HSS extends SignatureSpi {
         static final int LMOTS_SHAKE_N24_W8  = 0x10;
 
         static String lmotsType(int type) {
-            String typeStr;
-            switch (type) {
-                case LMOTS_RESERVED: typeStr = "LMOTS_RESERVED"; break;
-                case LMOTS_SHA256_N32_W1: typeStr = "LMOTS_SHA256_N32_W1"; break;
-                case LMOTS_SHA256_N32_W2: typeStr = "LMOTS_SHA256_N32_W2"; break;
-                case LMOTS_SHA256_N32_W4: typeStr = "LMOTS_SHA256_N32_W4"; break;
-                case LMOTS_SHA256_N32_W8: typeStr = "LMOTS_SHA256_N32_W8"; break;
-                case LMOTS_SHA256_N24_W1: typeStr = "LMOTS_SHA256_N24_W1"; break;
-                case LMOTS_SHA256_N24_W2: typeStr = "LMOTS_SHA256_N24_W2"; break;
-                case LMOTS_SHA256_N24_W4: typeStr = "LMOTS_SHA256_N24_W4"; break;
-                case LMOTS_SHA256_N24_W8: typeStr = "LMOTS_SHA256_N24_W8"; break;
-                case LMOTS_SHAKE_N32_W1:  typeStr = "LMOTS_SHAKE_N32_W1"; break;
-                case LMOTS_SHAKE_N32_W2:  typeStr = "LMOTS_SHAKE_N32_W2"; break;
-                case LMOTS_SHAKE_N32_W4:  typeStr = "LMOTS_SHAKE_N32_W4"; break;
-                case LMOTS_SHAKE_N32_W8:  typeStr = "LMOTS_SHAKE_N32_W8"; break;
-                case LMOTS_SHAKE_N24_W1:  typeStr = "LMOTS_SHAKE_N24_W1"; break;
-                case LMOTS_SHAKE_N24_W2:  typeStr = "LMOTS_SHAKE_N24_W2"; break;
-                case LMOTS_SHAKE_N24_W4:  typeStr = "LMOTS_SHAKE_N24_W4"; break;
-                case LMOTS_SHAKE_N24_W8:  typeStr = "LMOTS_SHAKE_N24_W8"; break;
-                default: typeStr = "unrecognized";
-            }
+            String typeStr = switch (type) {
+                case LMOTS_RESERVED -> "LMOTS_RESERVED";
+                case LMOTS_SHA256_N32_W1 -> "LMOTS_SHA256_N32_W1";
+                case LMOTS_SHA256_N32_W2 -> "LMOTS_SHA256_N32_W2";
+                case LMOTS_SHA256_N32_W4 -> "LMOTS_SHA256_N32_W4";
+                case LMOTS_SHA256_N32_W8 -> "LMOTS_SHA256_N32_W8";
+                case LMOTS_SHA256_N24_W1 -> "LMOTS_SHA256_N24_W1";
+                case LMOTS_SHA256_N24_W2 -> "LMOTS_SHA256_N24_W2";
+                case LMOTS_SHA256_N24_W4 -> "LMOTS_SHA256_N24_W4";
+                case LMOTS_SHA256_N24_W8 -> "LMOTS_SHA256_N24_W8";
+                case LMOTS_SHAKE_N32_W1  -> "LMOTS_SHAKE_N32_W1";
+                case LMOTS_SHAKE_N32_W2  -> "LMOTS_SHAKE_N32_W2";
+                case LMOTS_SHAKE_N32_W4  -> "LMOTS_SHAKE_N32_W4";
+                case LMOTS_SHAKE_N32_W8  -> "LMOTS_SHAKE_N32_W8";
+                case LMOTS_SHAKE_N24_W1  -> "LMOTS_SHAKE_N24_W1";
+                case LMOTS_SHAKE_N24_W2  -> "LMOTS_SHAKE_N24_W2";
+                case LMOTS_SHAKE_N24_W4  -> "LMOTS_SHAKE_N24_W4";
+                case LMOTS_SHAKE_N24_W8  -> "LMOTS_SHAKE_N24_W8";
+                default -> "unrecognized";
+            };
             return typeStr;
         }
 
@@ -417,7 +415,7 @@ public final class HSS extends SignatureSpi {
         final int twoPowh;
         final String hashAlgStr;
 
-        LMSParams(int m, int h, String hashAlgStr, int hashAlg_m) {
+        private LMSParams(int m, int h, String hashAlgStr, int hashAlg_m) {
             this.m = m;
             this.h = h;
             this.hashAlgStr = hashAlgStr;
@@ -426,136 +424,51 @@ public final class HSS extends SignatureSpi {
         }
 
         static LMSParams of(int type) {
-            int m;
-            int h;
-            String hashAlgStr;
-            int hashAlg_m; // output length of the LMS tree hash function
-            switch (type) {
-                case LMSUtils.LMS_SHA256_M32_H5:
-                    m = 32;
-                    h = 5;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHA256_M32_H10:
-                    m = 32;
-                    h = 10;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHA256_M32_H15:
-                    m = 32;
-                    h = 15;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHA256_M32_H20:
-                    m = 32;
-                    h = 20;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHA256_M32_H25:
-                    m = 32;
-                    h = 25;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHA256_M24_H5:
-                    m = 24;
-                    h = 5;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHA256_M24_H10:
-                    m = 24;
-                    h = 10;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHA256_M24_H15:
-                    m = 24;
-                    h = 15;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHA256_M24_H20:
-                    m = 24;
-                    h = 20;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHA256_M24_H25:
-                    m = 24;
-                    h = 25;
-                    hashAlgStr = "SHA-256";
-                    hashAlg_m = 32;
-                    break;
-                case LMSUtils.LMS_SHAKE_M32_H5:
-                    m = 32;
-                    h = 5;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                case LMSUtils.LMS_SHAKE_M32_H10:
-                    m = 32;
-                    h = 10;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                case LMSUtils.LMS_SHAKE_M32_H15:
-                    m = 32;
-                    h = 15;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                case LMSUtils.LMS_SHAKE_M32_H20:
-                    m = 32;
-                    h = 20;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                case LMSUtils.LMS_SHAKE_M32_H25:
-                    m = 32;
-                    h = 25;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                case LMSUtils.LMS_SHAKE_M24_H5:
-                    m = 24;
-                    h = 5;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                case LMSUtils.LMS_SHAKE_M24_H10:
-                    m = 24;
-                    h = 10;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                case LMSUtils.LMS_SHAKE_M24_H15:
-                    m = 24;
-                    h = 15;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                case LMSUtils.LMS_SHAKE_M24_H20:
-                    m = 24;
-                    h = 20;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                case LMSUtils.LMS_SHAKE_M24_H25:
-                    m = 24;
-                    h = 25;
-                    hashAlgStr = "SHAKE256-512";
-                    hashAlg_m = 64;
-                    break;
-                default:
+            LMSParams params = switch (type) {
+                case LMSUtils.LMS_SHA256_M32_H5 ->
+                    new LMSParams(32, 5, "SHA-256", 32);
+                case LMSUtils.LMS_SHA256_M32_H10 ->
+                    new LMSParams(32, 10, "SHA-256", 32);
+                case LMSUtils.LMS_SHA256_M32_H15 ->
+                    new LMSParams(32, 15, "SHA-256", 32);
+                case LMSUtils.LMS_SHA256_M32_H20 ->
+                    new LMSParams(32, 20, "SHA-256", 32);
+                case LMSUtils.LMS_SHA256_M32_H25 ->
+                    new LMSParams(32, 25, "SHA-256", 32);
+                case LMSUtils.LMS_SHA256_M24_H5 ->
+                    new LMSParams(24, 5, "SHA-256", 32);
+                case LMSUtils.LMS_SHA256_M24_H10 ->
+                    new LMSParams(24, 10, "SHA-256", 32);
+                case LMSUtils.LMS_SHA256_M24_H15 ->
+                    new LMSParams(24, 15, "SHA-256", 32);
+                case LMSUtils.LMS_SHA256_M24_H20 ->
+                    new LMSParams(24, 20, "SHA-256", 32);
+                case LMSUtils.LMS_SHA256_M24_H25 ->
+                    new LMSParams(24, 25, "SHA-256", 32);
+                case LMSUtils.LMS_SHAKE_M32_H5 ->
+                    new LMSParams(32, 5, "SHAKE256-512", 64);
+                case LMSUtils.LMS_SHAKE_M32_H10 ->
+                    new LMSParams(32, 10, "SHAKE256-512", 64);
+                case LMSUtils.LMS_SHAKE_M32_H15 ->
+                    new LMSParams(32, 15, "SHAKE256-512", 64);
+                case LMSUtils.LMS_SHAKE_M32_H20 ->
+                    new LMSParams(32, 20, "SHAKE256-512", 64);
+                case LMSUtils.LMS_SHAKE_M32_H25 ->
+                    new LMSParams(32, 25, "SHAKE256-512", 64);
+                case LMSUtils.LMS_SHAKE_M24_H5 ->
+                    new LMSParams(24, 5, "SHAKE256-512", 64);
+                case LMSUtils.LMS_SHAKE_M24_H10 ->
+                    new LMSParams(24, 10, "SHAKE256-512", 64);
+                case LMSUtils.LMS_SHAKE_M24_H15 ->
+                    new LMSParams(24, 15, "SHAKE256-512", 64);
+                case LMSUtils.LMS_SHAKE_M24_H20 ->
+                    new LMSParams(24, 20, "SHAKE256-512", 64);
+                case LMSUtils.LMS_SHAKE_M24_H25 ->
+                    new LMSParams(24, 25, "SHAKE256-512", 64);
+                default ->
                     throw new IllegalArgumentException("Unsupported or bad LMS type");
-            }
-
-            return new LMSParams(m, h, hashAlgStr, hashAlg_m);
+            };
+            return params;
         }
 
         boolean hasSameHash(LMSParams other) {
@@ -693,7 +606,6 @@ public final class HSS extends SignatureSpi {
                 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 1, 0x78
         };
-
         // Precomputed block for SHAKE256 when the message size is 55 bytes
         // (i.e. when SHAKE256 is used)
         private static final byte[] hashbufShake256_32 = {
@@ -748,92 +660,59 @@ public final class HSS extends SignatureSpi {
             twoPowWMinus1 = (1 << w) - 1;
             this.hashAlgName = hashAlgName;
             this.hashAlg_n = hashAlg_n;
-            if (hashAlgName.startsWith("SHAKE")) {
-                if (this.n == 24) {
-                    hashBuf = hashbufShake256_24;
-                } else {
-                    hashBuf = hashbufShake256_32;
+            hashBuf = switch (hashAlgName) {
+                case "SHAKE256-512" -> {
+                    yield this.n == 24 ?
+                            hashbufShake256_24 : hashbufShake256_32;
                 }
-            } else {
-                if (this.n == 24) {
-                    hashBuf = hashbufSha256_24;
-                } else {
-                    hashBuf = hashbufSha256_32;
+                case "SHA-256" -> {
+                    yield this.n == 24 ?
+                            hashbufSha256_24 : hashbufSha256_32;
                 }
-            }
+                default ->
+                    throw new IllegalArgumentException(
+                            "Unknown hash algorithm "+hashAlgName);
+            };
         }
 
         static LMOTSParams of(int lmotsType) {
-            LMOTSParams params;
-            switch (lmotsType) {
-                case LMSUtils.LMOTS_SHA256_N32_W1:
-                    params = new LMOTSParams(
-                            lmotsType, 32, 1, 7, 265, "SHA-256", 32);
-                    break;
-                case LMSUtils.LMOTS_SHA256_N32_W2:
-                    params = new LMOTSParams(
-                            lmotsType, 32, 2, 6, 133, "SHA-256", 32);
-                    break;
-                case LMSUtils.LMOTS_SHA256_N32_W4:
-                    params = new LMOTSParams(
-                            lmotsType, 32, 4, 4, 67, "SHA-256", 32);
-                    break;
-                case LMSUtils.LMOTS_SHA256_N32_W8:
-                    params = new LMOTSParams(
-                            lmotsType, 32, 8, 0, 34, "SHA-256", 32);
-                    break;
-                case LMSUtils.LMOTS_SHA256_N24_W1:
-                    params = new LMOTSParams(
-                            lmotsType, 24, 1, 8, 200, "SHA-256", 32);
-                    break;
-                case LMSUtils.LMOTS_SHA256_N24_W2:
-                    params = new LMOTSParams(
-                            lmotsType, 24, 2, 6, 101, "SHA-256", 32);
-                    break;
-                case LMSUtils.LMOTS_SHA256_N24_W4:
-                    params = new LMOTSParams(
-                            lmotsType, 24, 4, 4, 51, "SHA-256", 32);
-                    break;
-                case LMSUtils.LMOTS_SHA256_N24_W8:
-                    params = new LMOTSParams(
-                            lmotsType, 24, 8, 0, 26, "SHA-256", 32);
-                    break;
-                case LMSUtils.LMOTS_SHAKE_N32_W1:
-                    params = new LMOTSParams(
-                            lmotsType, 32, 1, 7, 265, "SHAKE256-512", 64);
-                    break;
-                case LMSUtils.LMOTS_SHAKE_N32_W2:
-                    params = new LMOTSParams(
-                            lmotsType, 32, 2, 6, 133, "SHAKE256-512", 64);
-                    break;
-                case LMSUtils.LMOTS_SHAKE_N32_W4:
-                    params = new LMOTSParams(
-                            lmotsType, 32, 4, 4, 67, "SHAKE256-512", 64);
-                    break;
-                case LMSUtils.LMOTS_SHAKE_N32_W8:
-                    params = new LMOTSParams(
-                            lmotsType, 32, 8, 0, 34, "SHAKE256-512", 64);
-                    break;
-                case LMSUtils.LMOTS_SHAKE_N24_W1:
-                    params = new LMOTSParams(
-                            lmotsType, 24, 1, 8, 200, "SHAKE256-512", 64);
-                    break;
-                case LMSUtils.LMOTS_SHAKE_N24_W2:
-                    params = new LMOTSParams(
-                            lmotsType, 24, 2, 6, 101, "SHAKE256-512", 64);
-                    break;
-                case LMSUtils.LMOTS_SHAKE_N24_W4:
-                    params = new LMOTSParams(
-                            lmotsType, 24, 4, 4, 51, "SHAKE256-512", 64);
-                    break;
-                case LMSUtils.LMOTS_SHAKE_N24_W8:
-                    params = new LMOTSParams(
-                            lmotsType, 24, 8, 0, 26, "SHAKE256-512", 64);
-                    break;
-                default:
+            LMOTSParams params = switch (lmotsType) {
+                case LMSUtils.LMOTS_SHA256_N32_W1 ->
+                    new LMOTSParams(lmotsType, 32, 1, 7, 265, "SHA-256", 32);
+                case LMSUtils.LMOTS_SHA256_N32_W2 ->
+                    new LMOTSParams(lmotsType, 32, 2, 6, 133, "SHA-256", 32);
+                case LMSUtils.LMOTS_SHA256_N32_W4 ->
+                    new LMOTSParams(lmotsType, 32, 4, 4, 67, "SHA-256", 32);
+                case LMSUtils.LMOTS_SHA256_N32_W8 ->
+                    new LMOTSParams(lmotsType, 32, 8, 0, 34, "SHA-256", 32);
+                case LMSUtils.LMOTS_SHA256_N24_W1 ->
+                    new LMOTSParams(lmotsType, 24, 1, 8, 200, "SHA-256", 32);
+                case LMSUtils.LMOTS_SHA256_N24_W2 ->
+                    new LMOTSParams(lmotsType, 24, 2, 6, 101, "SHA-256", 32);
+                case LMSUtils.LMOTS_SHA256_N24_W4 ->
+                    new LMOTSParams(lmotsType, 24, 4, 4, 51, "SHA-256", 32);
+                case LMSUtils.LMOTS_SHA256_N24_W8 ->
+                    new LMOTSParams(lmotsType, 24, 8, 0, 26, "SHA-256", 32);
+                case LMSUtils.LMOTS_SHAKE_N32_W1 ->
+                    new LMOTSParams(lmotsType, 32, 1, 7, 265, "SHAKE256-512", 64);
+                case LMSUtils.LMOTS_SHAKE_N32_W2 ->
+                    new LMOTSParams(lmotsType, 32, 2, 6, 133, "SHAKE256-512", 64);
+                case LMSUtils.LMOTS_SHAKE_N32_W4 ->
+                    new LMOTSParams(lmotsType, 32, 4, 4, 67, "SHAKE256-512", 64);
+                case LMSUtils.LMOTS_SHAKE_N32_W8 ->
+                    new LMOTSParams(lmotsType, 32, 8, 0, 34, "SHAKE256-512", 64);
+                case LMSUtils.LMOTS_SHAKE_N24_W1 ->
+                    new LMOTSParams(lmotsType, 24, 1, 8, 200, "SHAKE256-512", 64);
+                case LMSUtils.LMOTS_SHAKE_N24_W2 ->
+                    new LMOTSParams(lmotsType, 24, 2, 6, 101, "SHAKE256-512", 64);
+                case LMSUtils.LMOTS_SHAKE_N24_W4 ->
+                    new LMOTSParams(lmotsType, 24, 4, 4, 51, "SHAKE256-512", 64);
+                case LMSUtils.LMOTS_SHAKE_N24_W8 ->
+                    new LMOTSParams(lmotsType, 24, 8, 0, 26, "SHAKE256-512", 64);
+                default ->
                     throw new IllegalArgumentException(
                             "Unsupported or bad OTS Algorithm Identifier.");
-            }
+            };
             return params;
         }
 
