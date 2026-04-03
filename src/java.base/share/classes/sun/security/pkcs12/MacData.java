@@ -283,8 +283,7 @@ class MacData {
             byte[] macResult = calculateMac(macAlgorithm, passwd, params, data,
                     kdfHmac, hmac, len);
             DerOutputStream bytes = new DerOutputStream();
-            bytes.write(encode(algName, macResult, params, kdfHmac, hmac,
-                    macResult.length, len));
+            bytes.write(encode(algName, macResult, params, kdfHmac, hmac, len));
             return bytes.toByteArray();
         } catch (InvalidKeySpecException | InvalidKeyException |
                     InvalidAlgorithmParameterException e) {
@@ -311,8 +310,8 @@ class MacData {
      * ASN.1 encoding.
      */
     static byte[] encode(String algName, byte[] digest, PBEParameterSpec p,
-            String kdfHmac, String hmac, int macLength, int keyLength)
-            throws IOException, NoSuchAlgorithmException {
+            String kdfHmac, String hmac, int keyLength)
+            throws NoSuchAlgorithmException {
 
         final int iterations = p.getIterationCount();
         final byte[] macSalt = p.getSalt();
