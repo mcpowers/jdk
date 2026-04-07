@@ -98,6 +98,7 @@ public abstract class SHA3 extends DigestBase {
         this.suffix = suffix;
     }
 
+    @Override
     protected void implDigestFixedLengthPreprocessed(
             byte[] input, int inLen, byte[] output, int outOffset, int outLen) {
         implReset();

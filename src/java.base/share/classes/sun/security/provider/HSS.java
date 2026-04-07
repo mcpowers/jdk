@@ -733,17 +733,6 @@ public final class HSS extends SignatureSpi {
             S[len + 1] = (byte) (sum & 0xff);
         }
 
-        void digestFixedLengthPreprocessed(Object digest, byte[] input,
-                int inLen, byte[] output, int outOffset, int outLen) {
-            if (digest instanceof SHA3.SHAKE256Hash d) {
-                d.implDigestFixedLengthPreprocessed(
-                        input, inLen, output, outOffset, outLen);
-            } else if (digest instanceof SHA2.SHA256 d) {
-                d.implDigestFixedLengthPreprocessed(
-                        input, inLen, output, outOffset, outLen);
-            }
-        }
-
         byte[] lmotsPubKeyCandidate(
                 LMSignature lmSig, byte[] message, LMSPublicKey pKey)
                 throws SignatureException {
@@ -783,11 +772,11 @@ public final class HSS extends SignatureSpi {
                 byte[] preZi = hashBuf.clone();
                 int hashLen = hashBuf.length;
 
-                Object digest;
+                DigestBase db;
                 if (hashAlgName.startsWith("SHAKE")) {
-                    digest = new SHA3.SHAKE256Hash();
+                    db = new SHA3.SHAKE256Hash();
                 } else {
-                    digest = new SHA2.SHA256();
+                    db = new SHA2.SHA256();
                 }
                 pKey.getI(preZi, 0);
                 lmSig.getQArr(preZi, 16);
@@ -806,10 +795,10 @@ public final class HSS extends SignatureSpi {
                     for (int j = a; j < twoPowWMinus1; j++) {
                         preZi[22] = (byte) j;
                         if (j < twoPowWMinus2) {
-                            digestFixedLengthPreprocessed(digest, preZi,
+                            db.implDigestFixedLengthPreprocessed(preZi,
                                     hashLen, preZi, 23, n);
                         } else {
-                            digestFixedLengthPreprocessed(digest, preZi,
+                            db.implDigestFixedLengthPreprocessed(preZi,
                                     hashLen, preCandidate, 22 + i * n, n);
                         }
                     }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2003, 2024, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2003, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -241,5 +241,11 @@ abstract class DigestBase extends MessageDigestSpi implements Cloneable {
         // byte bit counter in SHA-384/512
         padding = new byte[136];
         padding[0] = (byte)0x80;
+    }
+
+    void implDigestFixedLengthPreprocessed (
+            byte[] input, int inLen, byte[] output, int outOffset, int outLen)
+            throws ProviderException {
+        throw new ProviderException("should not be here");
     }
 }
