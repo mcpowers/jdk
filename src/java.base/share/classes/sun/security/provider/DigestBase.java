@@ -243,9 +243,20 @@ abstract class DigestBase extends MessageDigestSpi implements Cloneable {
         padding[0] = (byte)0x80;
     }
 
+    /**
+     * Digest block-length bytes in a single operation.
+     * Subclasses are expected to override this method. It is intended
+     * for fixed-length short input where input includes padding bytes.
+     * @param input byte array to be digested
+     * @param inLen the length of the input
+     * @param output the output buffer
+     * @param outOffset the offset into output buffer where digest should be written
+     * @param outLen the length of the output buffer
+     * @throws UnsupportedOperationException if a subclass does not override this method
+     */
     void implDigestFixedLengthPreprocessed (
             byte[] input, int inLen, byte[] output, int outOffset, int outLen)
-            throws ProviderException {
-        throw new ProviderException("should not be here");
+            throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("should not be here");
     }
 }
